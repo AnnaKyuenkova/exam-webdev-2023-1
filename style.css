@@ -1,0 +1,27 @@
+.logo {
+    border-radius: 50%;
+}
+
+.colors { /*цвета для сайта (класс нигде не используется, нужен для моего удобства подбора цветов)*/
+    background-color: #98ff98; /*цвет зеленой мяты*/
+    background-color: #fde910; /*лимонный*/
+    background-color: #42aaff; /*голубой*/
+    background-color: #cc338b; /*пурпурно-розовый*/
+    background-color: #00ff00; /*цвет лайма*/
+    background-color: #654321; /*темно-коричневый*/
+}
+
+.header {
+    background-color:#42aaff;
+    color: #654321;
+}
+
+.mintBack {
+    background-color:#98ff98;
+    color: #654321;
+}
+
+.back {
+    background-color: #fcf2e3;
+    color: #654321;
+}
