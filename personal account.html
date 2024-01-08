@@ -8,14 +8,19 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet">
+    <script src="main.js" defer></script>
     <link rel="shortcut icon" type="image/png" href="images/logo.png"> <!--картинка на вкладке-->
     <title>WalkMoscow</title>
 </head>
 
-<body>
+<body class="back d-flex flex-column min-vh-100">
     <header class="header">
         <nav class="navbar navbar-expand-md ">
             <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo.png" width="40px" height="40px" alt="logo">
+                </a>
+                <h4>Личный кабинет</h4>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -27,9 +32,277 @@
         </nav>
     </header>
     <main>
+        <!--Область для всплывающих уведомлений (alerts)-->
+        <div class="alerts my-3"></div>
+
+        <section class="back">
+            <div class="container text-center py-3">
+                <h3>Оставленные заявки</h3>
+                <div>
+                    <table class="mx-auto">
+                        <thead>
+                            <tr>
+                                <th>Фото профиля</th>
+                                <th>№</th>
+                                <th>Название маршрута</th>
+                                <th>Дата</th>
+                                <th>Стоимость</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="images/profil.png" width="40px" height="40px" alt="profil">
+                                </td>
+                                <td>1</td>
+                                <td>Забавушка, музей народной игрушки</td>
+                                <td>10.12.2022</td>
+                                <td>5600</td>
+                                <td>
+                                    <button class="btn btnColor viewing" data-bs-toggle="modal"
+                                        data-bs-target="#viewingModal"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btnColor edit" data-bs-toggle="modal"
+                                        data-bs-target="#editModal"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn btnColor delete" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="images/profil.png" width="40px" height="40px" alt="profil">
+                                </td>
+                                <td>2</td>
+                                <td>Смотровая площадка Воробьевы горы</td>
+                                <td>9.12.2022</td>
+                                <td>3200</td>
+                                <td>
+                                    <button class="btn btnColor viewing" data-bs-toggle="modal"
+                                        data-bs-target="#viewingModal"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btnColor edit" data-bs-toggle="modal"
+                                        data-bs-target="#editModal"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn btnColor delete" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="images/profil.png" width="40px" height="40px" alt="profil">
+                                </td>
+                                <td>3</td>
+                                <td>Парк "Зарядье"</td>
+                                <td>17.08.2023</td>
+                                <td>2500</td>
+                                <td>
+                                    <button class="btn btnColor viewing" data-bs-toggle="modal"
+                                        data-bs-target="#viewingModal"><i class="bi bi-eye"></i></button>
+                                    <button class="btn btnColor edit" data-bs-toggle="modal"
+                                        data-bs-target="#editModal"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn btnColor delete" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="back pagination">
+            <div class="container text-center py-2">
+                <button class="btn btnColor" id="firstPage">Первая страница</button>
+                <button class="btn btnColor" id="Page1">1</button>
+                <button class="btn btnColor" id="Page2">2</button>
+                <button class="btn btnColor" id="Page3">3</button>
+                <button class="btn btnColor" id="lastPage">Последняя страница</button>
+            </div>
+        </section>
+
+        <!--Модальное окно просмотра заявки-->
+        <div class="modal fade" id="viewingModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Заголовок модального окна -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderModalLabel">Просмотр заявки</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Тело модального окна -->
+                    <div class="modal-body">
+                        <!-- Название маршрута -->
+                        <div class="mb-3">
+                            <label for="routeName" class="form-label">Название маршрута:</label>
+                            <input type="text" class="form-control" id="routeNam" placeholder="Название маршрута"
+                                disabled>
+                        </div>
+
+                        <!-- ФИО гида -->
+                        <div class="mb-3">
+                            <label for="guideName" class="form-label">ФИО гида:</label>
+                            <input type="text" class="form-control" id="guideName" placeholder="ФИО гида" disabled>
+                        </div>
+
+                        <!-- Поле для выбора даты экскурсии -->
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Дата экскурсии:</label>
+                            <input type="date" class="form-control" id="date">
+                        </div>
+
+                        <!-- Поле для выбора времени начала экскурсии -->
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Время начала экскурсии:</label>
+                            <input type="time" class="form-control" id="time">
+                        </div>
+
+                        <!-- Поле для выбора длительности экскурсии -->
+                        <div class="mb-3">
+                            <label for="duration" class="form-label">Длительность экскурсии:</label>
+                            <select class="form-select" id="duration">
+                                <option value="1">1 час</option>
+                                <option value="2">2 часа</option>
+                                <option value="3">3 часа</option>
+                            </select>
+                        </div>
+
+                        <!-- Поле для указания количества человек в группе -->
+                        <div class="mb-3">
+                            <label for="groupSize" class="form-label">Количество человек:</label>
+                            <input type="number" class="form-control" id="groupSize">
+                        </div>
+
+                        <!-- Блок с дополнительными опциями заказа -->
+                        <div class="mb-3">
+                            <label class="form-check-label">Дополнительные опции:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option1" id="option1">
+                                <label class="form-check-label" for="option1">Скидка для пенсионеров</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option2" id="option2">
+                                <label class="form-check-label" for="option2">Легкие закуски и горячие напитки во время
+                                    экскурсии</label>
+                            </div>
+                        </div>
+
+                        <!-- Блок с расчетом итоговой стоимости -->
+                        <div class="mb-3">
+                            <label for="totalCost" class="form-label">Итоговая стоимость:</label>
+                            <input type="text" class="form-control" id="totalCost" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Модальное окно редактирования заявки-->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Заголовок модального окна -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Редактрирование заявки</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Тело модального окна -->
+                    <div class="modal-body">
+                        <!-- Название маршрута -->
+                        <div class="mb-3">
+                            <label for="routeName" class="form-label">Название маршрута:</label>
+                            <input type="text" class="form-control" id="editRouteName" placeholder="Название маршрута"
+                                disabled>
+                        </div>
+
+                        <!-- ФИО гида -->
+                        <div class="mb-3">
+                            <label for="guideName" class="form-label">ФИО гида:</label>
+                            <input type="text" class="form-control" id="editGuideName" placeholder="ФИО гида" disabled>
+                        </div>
+
+                        <!-- Поле для выбора даты экскурсии -->
+                        <div class="mb-3">
+                            <label for="date" class="form-label">Дата экскурсии:</label>
+                            <input type="date" class="form-control" id="editDate">
+                        </div>
+
+                        <!-- Поле для выбора времени начала экскурсии -->
+                        <div class="mb-3">
+                            <label for="time" class="form-label">Время начала экскурсии:</label>
+                            <input type="time" class="form-control" id="edittTime">
+                        </div>
+
+                        <!-- Поле для выбора длительности экскурсии -->
+                        <div class="mb-3">
+                            <label for="duration" class="form-label">Длительность экскурсии:</label>
+                            <select class="form-select" id="editDuration">
+                                <option value="1">1 час</option>
+                                <option value="2">2 часа</option>
+                                <option value="3">3 часа</option>
+                            </select>
+                        </div>
+
+                        <!-- Поле для указания количества человек в группе -->
+                        <div class="mb-3">
+                            <label for="groupSize" class="form-label">Количество человек:</label>
+                            <input type="number" class="form-control" id="editGroupSize">
+                        </div>
+
+                        <!-- Блок с дополнительными опциями заказа -->
+                        <div class="mb-3">
+                            <label class="form-check-label">Дополнительные опции:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option1" id="editOption1">
+                                <label class="form-check-label" for="option1">Скидка для пенсионеров</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="option2" id="editOption2">
+                                <label class="form-check-label" for="option2">Легкие закуски и горячие напитки во время
+                                    экскурсии</label>
+                            </div>
+                        </div>
+
+                        <!-- Блок с расчетом итоговой стоимости -->
+                        <div class="mb-3">
+                            <label for="totalCost" class="form-label">Итоговая стоимость:</label>
+                            <input type="text" class="form-control" id="editTotalCost" disabled>
+                        </div>
+                    </div>
+
+                    <!-- Футер модального окна -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="button" class="btn btn-primary btnColor">Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Модальное окно удаления заявки-->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Заголовок модального окна -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel">Удаление заявки</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="mx-auto">Вы уверены, что хотите удалить заявку?</div>
+                    <!-- Футер модального окна -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отменить</button>
+                        <button type="button" class="btn btn-primary btnColor">Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JavaScript для окна-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </main>
 
-    <footer class="header">
+    <footer class="header mt-auto d-flex">
         <div class="container text-center py-2">
             &copy; WalkMoscow
         </div>
@@ -37,8 +310,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="main.js" defer></script>
+        crossorigin="anonymous">
+    </script>
 
 </body>
 
