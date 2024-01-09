@@ -5,6 +5,7 @@ function getRoutes() {
     let xhr = new XMLHttpRequest();
     let url = "http://exam-2023-1-api.std-900.ist.mospolytech.ru/api/routes?api_key=d91bd560-fd75-49d6-801c-af4c9c5c8a34";
     xhr.open("GET", url, true);
+
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let routes = JSON.parse(xhr.responseText);
@@ -28,7 +29,7 @@ function getRoutes() {
             }
         }
     };
-
+    
     xhr.send();
 }
 
@@ -45,16 +46,15 @@ function createAlert() {
     // добавление уведомления на страницу
     messBox.appendChild(alert);
     // удаление уведомления через 1 секунду
-    setTimeout(function() {
+    setTimeout(function () {
         messBox.removeChild(alert);
     }, 1000);
-  }
-  
-  // все кнопки на странице
-  let buttons = document.getElementsByTagName('button');
-  
-  // обработчик события на каждую кнопку
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', createAlert);
-  }
+}
 
+// все кнопки на странице
+let buttons = document.getElementsByTagName('button');
+
+// обработчик события на каждую кнопку
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', createAlert);
+}

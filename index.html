@@ -53,14 +53,14 @@
         <section class="back">
             <div class="container py-3 py-md-5">
                 <div class="row">
-                    <div class="col-md-6 text-center">
+                    <div class="col-lg-6 col-md-12 text-center">
                         <h1>WalkMoscow</h1>
                         <p>Открой Москву вместе с нами: найди идеальный пешеходный маршрут и заказывай гида легко и
                             быстро!</p>
                         <img src="images/logo.png" width="150px" height="150px" alt="logo">
                     </div>
-                    <div class="col-md-6 text-center">
-                        <img src="images/moscow.jpg" width="500px" height="300px" class="" alt="moscow">
+                    <div class="col-lg-6 col-md-12 text-center">
+                        <img src="images/moscow.jpg" width="500px" height="300px" class="img-fluid" alt="moscow">
                     </div>
                 </div>
             </div>
@@ -70,24 +70,24 @@
         <section id="about" class="mintBack"> <!--особенности проекта-->
             <div class="container py-3 py-md-5">
                 <div class="row"> <!--строка-->
-                    <div class="col-md-6 col-sm-12 text-center">
+                    <div class="col-lg-6 col-md-12 text-center">
                         <h4>Команда профессиональных гидов</h4>
                         <p>Компания имеет высококвалифицированных и опытных гидов, которые хорошо знают Москву и могут
                             предложить интересные и уникальные маршруты для пешеходного туризма.</p>
                     </div>
-                    <div class="col-md-6 col-sm-12 text-center">
+                    <div class="col-lg-6 col-md-12 text-center">
                         <h4>Персонализированный подход</h4>
                         <p>Компания учитывает индивидуальные предпочтения и интересы клиентов, чтобы создать наиболее
                             подходящий туристический маршрут. Это позволяет каждому туристу получить уникальный и
                             наиболее полезный опыт.</p>
                     </div>
-                    <div class="col-md-6 col-sm-12 text-center">
+                    <div class="col-lg-6 col-md-12 text-center">
                         <h4>Удобство и экономия времени</h4>
                         <p>Компания предлагает оформление заявок на услуги гида, что позволяет туристам сэкономить время
                             на самостоятельном поиске гида. Кроме того, компания может организовать все необходимые
                             разрешения и документы для проведения тура.</p>
                     </div>
-                    <div class="col-md-6 col-sm-12 text-center">
+                    <div class="col-lg-6 col-md-12 text-center">
                         <h4>Гарантия безопасности</h4>
                         <p>Компания обеспечивает безопасность туристов, предоставляя профессиональных гидов, которые
                             знают безопасные маршруты и могут предупредить о потенциальных опасностях.</p>
@@ -99,9 +99,13 @@
         <!--Интерактивная карта Москвы (2ГИС)-->
         <section class="back">
             <div class="container text-center py-3">
-                <h3 class="pb-2">Откуда вы хотите начать свое путешествие?</h3>
                 <div class="row">
-                    <div class="mx-auto" id="map" style="width:1000px; height:400px"></div>
+                    <div class="col">
+                        <h3 class="pb-2">Откуда вы хотите начать свое путешествие?</h3>
+                        <div class="row">
+                            <div class="mx-auto" id="map" style="width:100%; height:400px"></div>
+                        </div>        
+                    </div>
                 </div>
             </div>
         </section>
@@ -114,7 +118,7 @@
                 <!--Форма для поиска маршрутов по названию (текстовое поле) и по достопримечательности, через которую должен проходить маршрут (селект)-->
                 <div class="container text-center py-3">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-md-6 col-sm-12">
                             <form>
                                 <label for="routeName" class="py-1">Поиск по названию:</label>
                                 <div>
@@ -123,7 +127,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-sm-12">
                             <form>
                                 <label for="landmark" class="py-1">Поиск по достопримечательности:</label>
                                 <div>
