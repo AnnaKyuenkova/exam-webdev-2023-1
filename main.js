@@ -28,12 +28,12 @@ function getRoutes() {
                 selectCell.appendChild(selectButton);
             }
         } else {
-            let error = document.createElement (div);
+            let error = document.createElement(div);
             error.textContent = "Ошибка сервера. Пожалуйста, попробуйте позже :(";
             document.body.appendChild(errorElement);
         }
     };
-    
+
     xhr.send();
 }
 

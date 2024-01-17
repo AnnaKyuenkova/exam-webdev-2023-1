@@ -2,24 +2,31 @@
     border-radius: 50%;
 }
 
-.colors { /*цвета для сайта (класс нигде не используется, нужен для моего удобства подбора цветов)*/
-    background-color: #98ff98; /*цвет зеленой мяты*/
-    background-color: #fde910; /*лимонный*/
-    background-color: #42aaff; /*голубой*/
-    background-color: #cc338b; /*пурпурно-розовый*/
-    background-color: #00ff00; /*цвет лайма*/
-    background-color: #654321; /*темно-коричневый*/
+.colors {
+    /*цвета для сайта (класс нигде не используется, нужен для моего удобства подбора цветов)*/
+    background-color: #98ff98;
+    /*цвет зеленой мяты*/
+    background-color: #fde910;
+    /*лимонный*/
+    background-color: #42aaff;
+    /*голубой*/
+    background-color: #cc338b;
+    /*пурпурно-розовый*/
+    background-color: #00ff00;
+    /*цвет лайма*/
+    background-color: #654321;
+    /*темно-коричневый*/
 }
 
 /*фон шапки и футера*/
 .header {
-    background-color:#42aaff;
+    background-color: #42aaff;
     color: #654321;
 }
 
 /*мятный фон и коричневый текст*/
 .mintBack {
-    background-color:#98ff98;
+    background-color: #98ff98;
     color: #654321;
 }
 
@@ -48,7 +55,7 @@
 }
 
 /*псевдокласс для обозначения цвета кнопки при наведении курсора (hover)*/
-.btn:hover  {
+.btn:hover {
     color: #654321;
     border-color: #654321;
     background-color: #79c879;
